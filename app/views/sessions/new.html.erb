@@ -1,0 +1,23 @@
+<div class="session_form">
+ <% if flash[:alert] %>
+ 	<p id="notice"><%= flash[:alert] %></p>
+ <% end %>
+ <%= form_tag do %>
+ <% session[:user_id] = nil %>
+ <fieldset>
+ <legend>Зарегистрируйтесь, пожалуйста</legend>
+ <div>
+ 	<%= label_tag :name, 'Имя:' %>
+ 	<%= text_field_tag :name, params[:name] %>
+ </div>
+ <div>
+ 	<%= label_tag :password, 'Пароль:' %>
+ 	<%= password_field_tag :password, params[:password] %>
+ </div>
+ <div>
+ 	<%= submit_tag 'Login' %>
+ 	<%= link_to 'Register', new_user_path%>
+ </div>
+ </fieldset>
+ <% end %>
+</div>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+ <title>Pragprog Books Online Store</title>
+  <link href="css/bootstrap.css" rel="stylesheet">
+ 	<%= stylesheet_link_tag "application", media: "all",
+ 		"data-turbolinks-track" => true %>
+ 	<%= javascript_include_tag "application",
+		"data-turbolinks-track" => true %>
+ 	<%= csrf_meta_tag %>
+ </head>
+ <body class="<%= controller.controller_name %>">
+ 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.js"></script>
+ <div id="banner">
+ 	<%= image_tag("logo.png") %>
+ 	<%= @page_title || "Pragmatic Bookshelf" %>
+ </div>
+ <div id="columns">
+ 	<div id="side">
+ 		<ul>
+ 			<li><%= link_to 'Logout', login_url,  method: :destroy, data: { confirm: 'Are you sure?' } %></li>
+ 			
+		</ul>
+ 	</div>
+  <div id="main">
+ <%= yield %>
+ 	</div>
+</div>
+</body>
+</html>
